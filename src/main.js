@@ -16,7 +16,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_PUBLIC_PATH),
   routes,
 });
-
+console.log(import.meta.env);
 const app = createApp(App);
 app.use(pinia);
 app.use(router);

@@ -9,7 +9,7 @@ export const useAuthStore = defineStore({
   }),
   actions: {
     async login(email, password) {
-        const { data } = await axios.post(`${process.env.API_HOST}/api/auth/login/`, {email, password}, {
+        const { data } = await axios.post(`${import.meta.env.VITE_API_HOST}/api/auth/login/`, {email, password}, {
             headers: {
                 'Content-Type' : 'application/json; charset=UTF-8',
                 "Access-Control-Allow-Origin": "*",
@@ -20,7 +20,7 @@ export const useAuthStore = defineStore({
         }
     },
     async register(name, email, password) {
-      const {data} = await axios.post(`${process.env.API_HOST}/api/auth/registration/`, {name, email, password}, {
+      const {data} = await axios.post(`${import.meta.env.VITE_API_HOST}/api/auth/registration/`, {name, email, password}, {
         headers: {
             'Content-Type' : 'application/json; charset=UTF-8',
             "Access-Control-Allow-Origin": "*",
@@ -45,7 +45,7 @@ export const useAuthStore = defineStore({
       return !!this.token;
     },
     async getUser() {
-      const {data} = await axios.get(`${process.env.API_HOST}/api/auth/user/`, {
+      const {data} = await axios.get(`${import.meta.env.VITE_API_HOST}/api/auth/user/`, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
