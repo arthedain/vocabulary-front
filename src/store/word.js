@@ -13,7 +13,7 @@ export const useWordStore = defineStore({
   }),
   actions: {
     async fetchRandomWords(count = 4) {
-      const { data } = await axios.get(`http://localhost:3000/api/vocabulary/random/${count}`, {
+      const { data } = await axios.get(`${process.env.API_HOST}/api/vocabulary/random/${count}`, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
@@ -21,7 +21,7 @@ export const useWordStore = defineStore({
       this.list = data;
     },
     async saveQuizAnswer(questionId, answerId, hash) {
-      await axios.post(`http://localhost:3000/api/vocabulary/save-answer`, {
+      await axios.post(`${process.env.API_HOST}/api/vocabulary/save-answer`, {
         'type': 'eng-ua',
         'question_id': questionId,
         'answer_id': answerId,
@@ -33,7 +33,7 @@ export const useWordStore = defineStore({
       });
     },
     async fetchResult(hash) {
-      const { data } = await axios.get(`http://localhost:3000/api/vocabulary/result/`+hash, {
+      const { data } = await axios.get(`${process.env.API_HOST}/api/vocabulary/result/`+hash, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
@@ -41,7 +41,7 @@ export const useWordStore = defineStore({
       this.result = data;
     },
     async fetchResults() {
-      const { data } = await axios.get(`http://localhost:3000/api/vocabulary/results/`, {
+      const { data } = await axios.get(`${process.env.API_HOST}/api/vocabulary/results/`, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
@@ -49,7 +49,7 @@ export const useWordStore = defineStore({
       this.results = data;
     },
     async getAll(page = 1, search = '') {
-      const {data} = await axios.get(`http://localhost:3000/api/vocabulary`, {
+      const {data} = await axios.get(`${process.env.API_HOST}/api/vocabulary`, {
         params: {
           page,
           search
@@ -61,21 +61,21 @@ export const useWordStore = defineStore({
       this.words = data
     },
     async create(data) {
-      await axios.post(`http://localhost:3000/api/vocabulary/create`, {...data}, {
+      await axios.post(`${process.env.API_HOST}/api/vocabulary/create`, {...data}, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
       })
     },
     async update(id, data) {
-      await axios.post(`http://localhost:3000/api/vocabulary/update/${id}`, {...data}, {
+      await axios.post(`${process.env.API_HOST}/api/vocabulary/update/${id}`, {...data}, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
       })
     },
     async delete(id) {
-      await axios.post(`http://localhost:3000/api/vocabulary/delete/${id}`, {}, {
+      await axios.post(`${process.env.API_HOST}/api/vocabulary/delete/${id}`, {}, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
