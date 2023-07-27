@@ -13,6 +13,8 @@ export const useAuthStore = defineStore({
             headers: {
                 'Content-Type' : 'application/json; charset=UTF-8',
                 "Access-Control-Allow-Origin": "*",
+                "localtonet-skip-warning": true
+
             }
         });
         if(data.access_token) {
@@ -24,6 +26,8 @@ export const useAuthStore = defineStore({
         headers: {
             'Content-Type' : 'application/json; charset=UTF-8',
             "Access-Control-Allow-Origin": "*",
+            "localtonet-skip-warning": true
+
         }
       });
 
@@ -48,6 +52,9 @@ export const useAuthStore = defineStore({
       const {data} = await axios.get(`${import.meta.env.VITE_API_HOST}/api/auth/user/`, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "localtonet-skip-warning": true,
+          "Access-Control-Allow-Origin": "*",
+
         }
       });
 

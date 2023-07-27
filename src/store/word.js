@@ -16,6 +16,9 @@ export const useWordStore = defineStore({
       const { data } = await axios.get(`${import.meta.env.VITE_API_HOST}/api/vocabulary/random/${count}`, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       });
       this.list = data;
@@ -29,6 +32,9 @@ export const useWordStore = defineStore({
       }, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       });
     },
@@ -36,6 +42,9 @@ export const useWordStore = defineStore({
       const { data } = await axios.get(`${import.meta.env.VITE_API_HOST}/api/vocabulary/result/`+hash, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       });
       this.result = data;
@@ -44,6 +53,9 @@ export const useWordStore = defineStore({
       const { data } = await axios.get(`${import.meta.env.VITE_API_HOST}/api/vocabulary/results/`, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       });
       this.results = data;
@@ -56,6 +68,9 @@ export const useWordStore = defineStore({
         },
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       });
       this.words = data
@@ -64,6 +79,9 @@ export const useWordStore = defineStore({
       await axios.post(`${import.meta.env.VITE_API_HOST}/api/vocabulary/create`, {...data}, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       })
     },
@@ -71,6 +89,9 @@ export const useWordStore = defineStore({
       await axios.post(`${import.meta.env.VITE_API_HOST}/api/vocabulary/update/${id}`, {...data}, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       })
     },
@@ -78,6 +99,9 @@ export const useWordStore = defineStore({
       await axios.post(`${import.meta.env.VITE_API_HOST}/api/vocabulary/delete/${id}`, {}, {
         headers: {
           'token': localStorage.getItem('access_token'),
+          "Access-Control-Allow-Origin": "*",
+          "localtonet-skip-warning": true
+
         }
       })
     },
