@@ -13,7 +13,7 @@ export const useWordStore = defineStore({
   }),
   actions: {
     async fetchRandomWords(count = 4) {
-      const { data } = await axios.get(`${proccess.env.VITE_API_HOST}/api/vocabulary/random/${count}`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_API_HOST}/api/vocabulary/random/${count}`, {
         headers: {
           'token': localStorage.getItem('access_token'),
         }
