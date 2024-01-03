@@ -1,6 +1,7 @@
 import Index from '@/pages/index.vue';
 import NotFound from '@/pages/not-found.vue';
 import Vocabulary from '@/pages/vocabulary/index.vue';
+import User from '@/pages/user/index.vue';
 import Login from '@/pages/auth/login.vue';
 import Registration from '@/pages/auth/registration.vue';
 import Quiz from '@/pages/quiz.vue';
@@ -17,6 +18,7 @@ function isAuth() {
 export const routes = [
   { path: '/', component: Index, name: 'index', beforeEnter: [isAuth] },
   { path: '/vocabulary', component: Vocabulary, name: 'vocabulary', beforeEnter: [isAuth] },
+  { path: '/users', component: User, name: 'user', beforeEnter: [isAuth] },
   { path: '/quiz/:type', component: Quiz, name: 'quiz', beforeEnter: [isAuth] },
   { path: '/testing/:type', component: Testing, name: 'testing', beforeEnter: [isAuth] },
   { path: '/quiz-result/:hash', component: QuizResult, name: 'quiz-result', beforeEnter: [isAuth] },

@@ -3,6 +3,7 @@
     <router-link class="m-2" :to="{name:'index'}">Home</router-link>
     <div class="flex w-full" v-if="isAuth">
       <router-link class="m-1" :to="{name:'vocabulary'}">Vocabulary</router-link>
+      <router-link class="m-1" :to="{name:'user'}">Users</router-link>
       <div class="ml-auto flex">
         <p class="m-1 text-gray-500">{{ user.name }}</p>
         <p class="m-1 cursor-pointer" @click="logout">Logout</p>
